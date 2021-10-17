@@ -1,0 +1,11 @@
+<% if session[:login_uid] %>
+<% @tweets.each do |tweet| %>
+<%= tweet.message %>
+<br>
+<% end %>
+<%=link_to 'ログアウト', tops_logout_path %>
+<%=link_to 'ツイートする', '/tweets/new' %>
+<% else %>
+<%=link_to 'ログイン', '/tops/login', method: :post %>
+<%= link_to 'ユーザー登録', '/users' %>
+<% end %>
